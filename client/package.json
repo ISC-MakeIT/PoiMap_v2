@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack --mode development --config webpack.config.js",
+    "build": "webpack --mode production --config webpack.config.js"
   }
 }
