@@ -7,13 +7,21 @@
     <title>PoiMap</title>
   </head>
   <body>
-    <header>
-      <div id="back-home-icon"></div>
-      <p>現在位置</p>
+    <header id="header">
+      <p id="back-home">
+        <img src="../svg/back.svg" alt="ホームに戻る" id="back-home-icon" />
+      </p>
+      <p id="location">現在位置</p>
     </header>
-    <div id="map"></div>
-    <div id="sort-icon">
-      <p><img src="../svg/filter.svg" alt="ゴミ箱の種類でソートする" /></p>
+    <section id="map"></section>
+    <div id="open-sort-menu">
+      <p>
+        <img
+          src="../svg/filter.svg"
+          alt="ゴミ箱の種類でソートする"
+          id="open-sort-menu-img"
+        />
+      </p>
     </div>
     <!-- sort-iconを押した後に表示 -->
     <nav id="sort-nav">
