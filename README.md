@@ -1,5 +1,5 @@
 # PoiMap_v2
-## brunch
+## branch
 issueの番号を頭につけて切ってね
 example ``2/add/sugoi-modannna-dezain``
 ***
