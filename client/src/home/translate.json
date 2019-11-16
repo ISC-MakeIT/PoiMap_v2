@@ -1,0 +1,51 @@
+{
+  "title": {
+    "ja": "ゴミ箱ないとは言わせない",
+    "en": "looking for a trash can.",
+    "zh": "找到一个回收站并打扫城镇",
+    "ko": "휴지통을 찾습니다."
+  },
+
+  "subTitle": {
+    "ja": "ゴミ箱位置検索サービス",
+    "en": "Trash can search service",
+    "zh": "垃圾桶位置，搜索服务",
+    "ko": "쓰레기통의 위치 검색 서비스"
+  },
+
+  "PresentLocation": {
+    "ja": "現在地で探す",
+    "en": "Search by current location",
+    "zh": "按当前位置搜索",
+    "ko": "현재 위치에서 검색"
+  },
+
+  "manual": {
+    "ja": "マニュアル",
+    "en": "manual",
+    "zh": "手册",
+    "ko": "설명서"
+  },
+
+  "searchDescription": {
+    "ja": "PoiMapは周辺地域や指定した地域にあるゴミ箱の位置を表示して案内します。
+          又、ゴミの種類によってフィルターをかけることもできるので、
+          捨てたいゴミの種類に応じて表示するゴミ箱を制限することもできます。",
+    "en": "PoiMap displays and guides the location of the recycle bin in the surrounding area or designated area.
+          You can also limit the displayed garbage by filtering according to the type of garbage you want to throw away.",
+    "zh": "PoiMap将通过显示回收站在周围区域或指定区域中的位置来指导您。
+          您还可以按垃圾类型过滤。
+          您还可以根据要扔掉的垃圾类型限制显示的垃圾箱。",
+    "ko": '"PoiMap"은 지역이나 지정된 지역에있는 쓰레기통의 위치를 ​​표시하여 안내합니다.
+          또한 쓰레기의 종류에 따라 필터링 할 수 있기 때문에,
+          버리고 싶은 쓰레기의 종류에 따라 표시하는 쓰레기통을 제한 할 수 있습니다.'
+  },
+
+  "postDescription": {
+    "ja": "PoiMapはゴミ箱の位置を地図上に追加することもできるので、見つけたゴミ箱をユーザー同士で共有することができます。",
+    "en": "PoiMap can add trash locations to the map. You can share the garbage you find with other users.",
+    "zh": "PoiMap将垃圾箱位置添加到地图，以便您可以与其他人共享垃圾箱。",
+    "ko": ""PoiMap"휴지통 위치를지도에 추가 할 수 있으므로 찾고 휴지통을 사용자끼리 공유 할 수 있습니다."
+  },
+
+}
