@@ -1,19 +1,19 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.join(__dirname, "build/"),
-    publicPath: "/js/",
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'build'),
+    publicPath: '/js/'
   },
+  devtool: 'inline-source-map',
   devServer: {
     inline: true,
     watchContentBase: true,
-    contentBase: path.join(__dirname, 'public'),
     open: true,
-    openPage: "index.html",
-    port : 3000,
+    openPage: 'public/index.html',
+    port: 3000
   }
 };
