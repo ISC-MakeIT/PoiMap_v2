@@ -1,6 +1,7 @@
 # PoiMap_v2
 ## brunch
-example ``add/sugoi-modannna-dezain``
+issueの番号を頭につけて切ってね
+example ``2/add/sugoi-modannna-dezain``
 ***
 ## command
 **作業手順** <br>
