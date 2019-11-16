@@ -20,4 +20,42 @@ const translate = () => {
     });
   })
 
+  document.getElementsByClassName('en language')[0]
+    .addEventListener('click', () => {
+      glot.t(headerText.textContent, 'en').then(result => {
+        headerText.textContent = result;
+      });
+      glot.t(searchHeaderText.textContent, 'en').then(result => {
+        searchHeaderText.textContent = result;
+      });
+      glot.t(postHeaderText.textContent, 'en').then(result => {
+        postHeaderText.textContent = result;
+      });
+    });
+
+  document.getElementsByClassName('ch language')[0].addEventListener('click', () => {
+      glot.t(headerText.textContent, 'zh').then(result => {
+        headerText.textContent = result;
+      });
+      glot.t(searchHeaderText.textContent, 'zh').then(result => {
+        searchHeaderText.textContent = result;
+      });
+      glot.t(postHeaderText.textContent, 'zh').then(result => {
+        postHeaderText.textContent = result;
+      });
+  });
+
+  document
+    .getElementsByClassName('kr language')[0]
+    .addEventListener('click', () => {
+      glot.t(headerText.textContent, 'ko').then(result => {
+        headerText.textContent = result;
+      });
+      glot.t(searchHeaderText.textContent, 'ko').then(result => {
+        searchHeaderText.textContent = result;
+      });
+      glot.t(postHeaderText.textContent, 'ko').then(result => {
+        postHeaderText.textContent = result;
+      });
+    });
 }
