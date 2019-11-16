@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PoiMap</title>
+  </head>
+  <body>
+    <header id="header">
+      <p id="back-home">
+        <img src="../svg/back.svg" alt="ホームに戻る" id="back-home-icon" />
+      </p>
+      <p id="location">現在位置</p>
+    </header>
+    <section id="map"></section>
+    <div id="open-sort-menu">
+      <p>
+        <img
+          src="../svg/filter.svg"
+          alt="ゴミ箱の種類でソートする"
+          id="open-sort-menu-img"
+        />
+      </p>
+    </div>
+    <!-- sort-iconを押した後に表示 -->
+    <nav id="sort-nav">
+      <ul>
+        <li id="sort-PETbottle" class="sort-selector">
+          <p id="sort-PETbottle-txt">
+            ペットボトル<img
+              src="../svg/selectPlasticBottle-icon.svg"
+              alt="ペットボトル"
+              id="sort-PETbottle-img"
+            />
+          </p>
+        </li>
+        <li id="sort-bottleCan" class="sort-selector">
+          <p id="sort-bottleCan-txt">
+            缶・ビン<img
+              src="../svg/selectBurnableGarbage-icon.svg"
+              alt="缶・ビン"
+              id="sort-bottleCan-img"
+            />
+          </p>
+        </li>
+        <li id="sort-NonBurn" class="sort-selector">
+          <p id="sort-NonBurn-txt">
+            燃えないゴミ<img
+              src="../svg/selectNonBurnableGarbage-icon.svg"
+              alt="燃えないゴミ"
+              id="sort-NonBurn-img"
+            />
+          </p>
+        </li>
+        <li id="sort-CanBurn" class="sort-selector">
+          <p id="sort-CanBurn-txt">
+            燃えるゴミ<img
+              src="../svg/selectBurnableGarbage-icon.svg"
+              alt="燃えるゴミ"
+              id="sort-CanBurn-img"
+            />
+          </p>
+        </li>
+        <li id="sort-close">
+          <p>
+            <img
+              src="../svg/cross-icon.svg"
+              alt="閉じるボタン"
+              id="sort-close-img"
+            />
+          </p>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
