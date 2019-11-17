@@ -1,7 +1,10 @@
 class Map {
-  constructor(marker) {
-    this.marker = marker;
+  constructor(markerInfo) {
+    this.markerInfo = markerInfo;
     this.target = document.getElementById('map');
+    this.map;
+    this.onMarker = markerInfo;
+    this.filterFlg = 0b0000;
   }
 
   init() {
@@ -15,7 +18,7 @@ class Map {
       const nowLatLng = new google.maps.LatLng(nowLat, nowLng);
       const mapOptions = {
         zoom: 15,
-        center: MyLatLng,
+        center: nowLatLng,
         mapTypeId: 'roadmap',
         mapTypeControl: false,
         fullscreenControl: false,
@@ -24,11 +27,22 @@ class Map {
           position: google.maps.ControlPosition.LEFT_BOTTOM
         }
       };
+      this.map = new google.maps.Map(this.target, mapOptions);
     };
     const error = error => {
       console.log(error);
     };
     navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+  displayMarker() {
+    this.onMarker.map(i => {
+      const marker = new google.maps.Marker({
+        position: { lat: i.lat, lng: i.lng },
+        map: this.map
+      });
+      marker.setMap(this.map);
+    });
   }
 }
 
