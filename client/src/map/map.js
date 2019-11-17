@@ -44,6 +44,24 @@ class Map {
       marker.setMap(this.map);
     });
   }
+
+  removeMarker() {
+    this.onMarker.map(i => {
+      const marker = new google.maps.Marker({
+        position: { lat: i.lat, lng: i.lng },
+        map: this.map
+      });
+      marker.setMap(null);
+    });
+  }
+
+  filterMarker() {
+    this.removeMarker();
+    const tmp = this.markerInfo.filter(item => item.types & this.filterFlg);
+    this.onMarker = null;
+    this.onMarker = tmp.slice();
+    this.displayMarker();
+  }
 }
 
 export default Map;
