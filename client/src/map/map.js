@@ -5,7 +5,7 @@ class Map {
     this.root = document.createElement('section');
     this.root.id = '';
     this.map;
-    this.onMarker = markerInfo;
+    this.onMarker = markerInfo.slice();
     this.filterFlg = 0b0000;
     this.category = [
       // 変更の余地ありそう
@@ -96,6 +96,29 @@ class Map {
 
     navigator.geolocation.getCurrentPosition(success, error);
     this.target.appendChild(section);
+
+    this.map.addListener('click', e => {
+      this.getClickMarker(e.latLng)
+    })
+
+    const addMarker = docment.createElement('div');
+    const addMarkerText = document.createElement('p');
+    addMarkerText.innerHTML = '新しくゴミ箱を追加しますか？';
+    addMarker.appendChild(addMarkerText);
+
+    const addMarkerYes = document.createElement('button');
+    const addMarkerNo = document.createElement('button');
+
+    addMarker.appendChild(addMarkerYes);
+    addMarker.appendChild(addMarkerNo);
+
+    addMarkerYes.addEventListener('click', () => {
+      this.createPostForm();
+    })
+
+    addMarkerNo, addEventListener('click', () => {
+      this.removeMarker();
+    })
   }
 
   displayMarker() {
@@ -124,6 +147,21 @@ class Map {
     this.onMarker = null;
     this.onMarker = tmp.slice();
     this.displayMarker();
+  }
+
+  getClickMarker(latLng) {
+    const marker = new google.maps.Marker({
+      position: latLng,
+      map: this.map
+    });
+  }
+
+  createPostForm() {
+    const postForm = document.createElement('main');
+    const postName = document.createElement('p');
+    const postCategorys = document.createElement('li');
+    postForm.appendChild(postName);
+    postForm.appendChild(postCategorys);
   }
 }
 
