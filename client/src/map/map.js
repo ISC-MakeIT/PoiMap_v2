@@ -97,28 +97,47 @@ class Map {
     navigator.geolocation.getCurrentPosition(success, error);
     this.target.appendChild(section);
 
+    // マップをクリックして座標を取得
     this.map.addListener('click', e => {
-      this.getClickMarker(e.latLng)
-    })
 
-    const addMarker = docment.createElement('div');
-    const addMarkerText = document.createElement('p');
-    addMarkerText.innerHTML = '新しくゴミ箱を追加しますか？';
-    addMarker.appendChild(addMarkerText);
+      // 取得した座標にピンを生成
+      this.getClickMarker(e.latLng);
 
-    const addMarkerYes = document.createElement('button');
-    const addMarkerNo = document.createElement('button');
+      // 投稿場所の確認バーを生成（divは変更余地あり）
+      const addMarker = docment.createElement('div');
+      mapSection.appendChild(addMarker);
 
-    addMarker.appendChild(addMarkerYes);
-    addMarker.appendChild(addMarkerNo);
+      // 確認文生成
+      const addMarkerText = document.createElement('p');
+      addMarkerText.innerHTML = '新しくゴミ箱を追加しますか？';
+      addMarker.appendChild(addMarkerText);
 
-    addMarkerYes.addEventListener('click', () => {
-      this.createPostForm();
-    })
+      // 返答ボタン生成
+      const addMarkerYes = document.createElement('button');
+      const addMarkerNo = document.createElement('button');
+      addMarker.appendChild(addMarkerYes);
+      addMarker.appendChild(addMarkerNo);
 
-    addMarkerNo, addEventListener('click', () => {
-      this.removeMarker();
-    })
+      // 「はい」が押されたとき
+      addMarkerYes.addEventListener('click', () => {
+        this.createPostForm();
+      });
+
+      // 「いいえ」が押されたとき
+      addMarkerNo.
+        addEventListener('click', () => {
+          this.removeClickMarker(e.latLng);
+          mapSection.removeChild(addMarker);
+        });
+
+      // 「投稿」が押されたとき
+      postButton.addEventListener('click', () => {
+        // 要素を削除
+        this.removePostForm();
+        // ザーバーに座標を送る
+        const postLatLng = e.latLng;
+      })
+    });
   }
 
   displayMarker() {
@@ -149,19 +168,46 @@ class Map {
     this.displayMarker();
   }
 
+  // クリックした座標にピンを設置
   getClickMarker(latLng) {
     const marker = new google.maps.Marker({
       position: latLng,
       map: this.map
     });
+    marker.setup(this.map);
   }
 
+  // クリックした座標に設置したピンを削除
+  removeClickMarker(latLng) {
+    const marker = new google.map.Marker({
+      position: latLng,
+      map: this.map
+    })
+    marker.setup(null);
+  }
+
+  // 投稿ページを生成
   createPostForm() {
     const postForm = document.createElement('main');
-    const postName = document.createElement('p');
+    postForm.id = 'postForm';
+    const postName = document.createElement('imput');
+    postName.type = 'text';
     const postCategorys = document.createElement('li');
+    const postImg = document.createElement('img');
+    const postButton = document.createElement('submit');
+    postButton.type = 'submit';
+    postButton.innerHTML = '投稿';
+    mapSection.appendChild(postForm);
     postForm.appendChild(postName);
     postForm.appendChild(postCategorys);
+    postForm.appendChild(postImg);
+    postForm.appendChild(postButton);
+  }
+
+  // 投稿フォームを削除
+  removePostForm() {
+    const postForm = document.getElementById('postForm');
+    mapSection.removeChild(postForm);
   }
 }
 
