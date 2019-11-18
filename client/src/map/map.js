@@ -1,5 +1,5 @@
 class Map {
-  constructor(markerInfo) {
+  constructor(markerInfo, trashBoxLabel) {
     this.markerInfo = markerInfo;
     this.target = document.querySelector('#navigation-page-link');
     this.root = document.createElement('section');
@@ -7,33 +7,7 @@ class Map {
     this.map;
     this.onMarker = markerInfo.slice();
     this.filterFlg = 0b0000;
-    this.category = [
-      // 変更の余地ありそう
-      {
-        Name: 'ペットボトル',
-        Id: 'sort-PETbottle',
-        Img: '../../svg/selectPlasticBottle-icon.svg',
-        Flg: 0b0001
-      },
-      {
-        Name: '缶・ビン',
-        Id: 'sort-bottleCan',
-        Img: '../../svg/selectPlasticBottle-icon.svg',
-        Flg: 0b0010
-      },
-      {
-        Name: '燃えないゴミ',
-        Id: 'sort-NonBurn',
-        Img: '../../svg/selectPlasticBottle-icon.svg',
-        Flg: 0b0100
-      },
-      {
-        Name: '燃えるゴミ',
-        Id: 'sort-CanBurn',
-        Img: '../../svg/selectPlasticBottle-icon.svg',
-        Flg: 0b1000
-      }
-    ];
+    this.trashBoxLabel = trashBoxLabel;
   }
 
   init() {
@@ -44,7 +18,7 @@ class Map {
     const mapSection = document.createElement('section');
     mapSection.id = 'map';
 
-    const success = pos => {
+    const request_success = pos => {
       const nowLat = pos.coords.latitude;
       const nowLng = pos.coords.longitude;
       const nowLatLng = new google.maps.LatLng(nowLat, nowLng);
@@ -64,7 +38,7 @@ class Map {
       const nav = document.createElement('nav');
       nav.id = 'filter-nav';
       const ul = document.createElement('ul');
-      this.category.map(i => {
+      this.trashBoxLabel.map(i => {
         const li = document.createElement('li');
         li.id = i.Id;
         li.addEventListener('click', () => {
@@ -82,7 +56,7 @@ class Map {
       nav.appendChild(ul);
       mapSection.append(nav);
     };
-    const error = error => {
+    const request_error = error => {
       section.innerHTML = '<p>GoogleMapを表示できません</p> ';
       console.error(error);
     };
@@ -94,12 +68,11 @@ class Map {
     header.appendChild(backHomeIcon);
     header.appendChild(h1);
 
-    navigator.geolocation.getCurrentPosition(success, error);
+    navigator.geolocation.getCurrentPosition(request_success, request_error);
     this.target.appendChild(section);
 
     // マップをクリックして座標を取得
-    this.map.addListener('click', e => {
-
+    this.map.addEventListener('click', e => {
       // 取得した座標にピンを生成
       this.getClickMarker(e.latLng);
 
@@ -124,11 +97,10 @@ class Map {
       });
 
       // 「いいえ」が押されたとき
-      addMarkerNo.
-        addEventListener('click', () => {
-          this.removeClickMarker(e.latLng);
-          mapSection.removeChild(addMarker);
-        });
+      addMarkerNo.addEventListener('click', () => {
+        this.removeClickMarker(e.latLng);
+        mapSection.removeChild(addMarker);
+      });
 
       // 「投稿」が押されたとき
       postButton.addEventListener('click', () => {
@@ -136,7 +108,7 @@ class Map {
         this.removePostForm();
         // ザーバーに座標を送る
         const postLatLng = e.latLng;
-      })
+      });
     });
   }
 
@@ -182,7 +154,7 @@ class Map {
     const marker = new google.map.Marker({
       position: latLng,
       map: this.map
-    })
+    });
     marker.setup(null);
   }
 
