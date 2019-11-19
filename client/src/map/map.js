@@ -99,10 +99,27 @@ class Map {
       });
 
       postButton.addEventListener('click', () => {
+        const idNum = this.markerInfo.length;
+        const postLat = e.lat;
+        const postLng = e.lng;
         this.removePostForm();
-        // ザーバーに座標を送る（予定）
-        const postLatLng = e.latLng;
+        // ザーバーに座標を送る
+        //（まだデプロイしていないのでローカルホスト）
+        // fetch(/*localhost:*/,
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        //   body: JSON.stringify({
+        //     'id': idNum,
+        //     'lat': postLat,
+        //     'lng': postLng,
+        //     'name': postName.innerHTML
+        //   })
+        // )
       });
+
+
     });
   }
 
@@ -155,7 +172,21 @@ class Map {
     postForm.id = 'postForm';
     const postName = document.createElement('imput');
     postName.type = 'text';
-    const postCategorys = document.createElement('li');
+    postName.id = 'postName';
+    const postCategorys = document.createElement('ul');
+    // let types = 0b0000;
+    // for (let i = 0; i <= 4; i++){
+    //   const CATEGORY[i].id = document.createElement('li');
+    //   postCategorys.appendChild(CATEGORY[i].id);
+    //   let decisionFlg = 0;
+    //   CATEGORY[i].id.addEventListener('click', () => {
+    //     if (decisionFlg === 0) {
+    //       this.typeDecision(i, types);
+    //     } else {
+    //       this.typeCancel(i, types);
+    //     }
+    //   });
+    // }
     const postImg = document.createElement('img');
     const postButton = document.createElement('submit');
     postButton.type = 'submit';
@@ -171,6 +202,19 @@ class Map {
     const postForm = document.getElementById('postForm');
     mapSection.removeChild(postForm);
   }
+
+  // typeDecision(i,types) {
+  //   types = types | CATEGORY[i].flg;
+  //   return types
+  // }
+
+  // typeCancel() {
+
+  // }
+
+  // createDetailPage() {
+
+  // }
 }
 
 export default Map;
