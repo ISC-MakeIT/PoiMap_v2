@@ -71,16 +71,12 @@ class Map {
     navigator.geolocation.getCurrentPosition(request_success, request_error);
     this.target.appendChild(section);
 
-    // マップをクリックして座標を取得
     this.map.addEventListener('click', e => {
-      // 取得した座標にピンを生成
       this.getClickMarker(e.latLng);
 
       // 投稿場所の確認バーを生成（divは変更余地あり）
       const addMarker = docment.createElement('div');
       mapSection.appendChild(addMarker);
-
-      // 確認文生成
       const addMarkerText = document.createElement('p');
       addMarkerText.innerHTML = '新しくゴミ箱を追加しますか？';
       addMarker.appendChild(addMarkerText);
@@ -102,11 +98,9 @@ class Map {
         mapSection.removeChild(addMarker);
       });
 
-      // 「投稿」が押されたとき
       postButton.addEventListener('click', () => {
-        // 要素を削除
         this.removePostForm();
-        // ザーバーに座標を送る
+        // ザーバーに座標を送る（予定）
         const postLatLng = e.latLng;
       });
     });
@@ -140,7 +134,6 @@ class Map {
     this.displayMarker();
   }
 
-  // クリックした座標にピンを設置
   getClickMarker(latLng) {
     const marker = new google.maps.Marker({
       position: latLng,
@@ -149,7 +142,6 @@ class Map {
     marker.setup(this.map);
   }
 
-  // クリックした座標に設置したピンを削除
   removeClickMarker(latLng) {
     const marker = new google.map.Marker({
       position: latLng,
@@ -158,7 +150,6 @@ class Map {
     marker.setup(null);
   }
 
-  // 投稿ページを生成
   createPostForm() {
     const postForm = document.createElement('main');
     postForm.id = 'postForm';
@@ -176,7 +167,6 @@ class Map {
     postForm.appendChild(postButton);
   }
 
-  // 投稿フォームを削除
   removePostForm() {
     const postForm = document.getElementById('postForm');
     mapSection.removeChild(postForm);
