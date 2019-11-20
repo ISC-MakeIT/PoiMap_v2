@@ -2,25 +2,25 @@ const CATEGORY = [
   {
     name: 'ペットボトル',
     id: 'sort-PETbottle',
-    img: '../../svg/selectPlasticBottle-icon.svg',
+    img: 'PlasticBottle-icon.svg',
     flg: 0b0001
   },
   {
     name: '缶・ビン',
     id: 'sort-bottleCan',
-    img: '../../svg/selectPlasticBottle-icon.svg',
+    img: 'AluminumGlass-icon.svg',
     flg: 0b0010
   },
   {
     name: '燃えないゴミ',
     id: 'sort-NonBurn',
-    img: '../../svg/selectPlasticBottle-icon.svg',
+    img: 'NonBurnableGarbage-icon.svg',
     flg: 0b0100
   },
   {
     name: '燃えるゴミ',
     id: 'sort-CanBurn',
-    img: '../../svg/selectPlasticBottle-icon.svg',
+    img: 'BurnableGarbage-icon.svg',
     flg: 0b1000
   }
 ];

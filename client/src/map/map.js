@@ -1,3 +1,5 @@
+import { MARKER_INFO, CATEGORY } from "./dummy";
+
 class Map {
   constructor(markerInfo, trashBoxLabel) {
     this.markerInfo = markerInfo;
@@ -104,7 +106,7 @@ class Map {
         const postLng = e.lng;
         this.removePostForm();
         // ザーバーに座標を送る
-        //（まだデプロイしていないのでローカルホスト）
+        //まだデプロイしていないのでローカルホスト
         // fetch(/*localhost:*/,
         //   method: 'POST',
         //   headers: {
@@ -118,8 +120,9 @@ class Map {
         //   })
         // )
       });
-
-
+      for (let i = 0; i < MARKER_INFO.length; i++){
+        MARKER_INFO[i].onClick = createDetailPage(i);
+      }
     });
   }
 
@@ -174,19 +177,21 @@ class Map {
     postName.type = 'text';
     postName.id = 'postName';
     const postCategorys = document.createElement('ul');
-    // let types = 0b0000;
-    // for (let i = 0; i <= 4; i++){
-    //   const CATEGORY[i].id = document.createElement('li');
-    //   postCategorys.appendChild(CATEGORY[i].id);
-    //   let decisionFlg = 0;
-    //   CATEGORY[i].id.addEventListener('click', () => {
-    //     if (decisionFlg === 0) {
-    //       this.typeDecision(i, types);
-    //     } else {
-    //       this.typeCancel(i, types);
-    //     }
-    //   });
-    // }
+    let types = 0b0000;
+    for (let i = 0; i <= 4; i++){
+      const CATEGORY[i].id = document.createElement('li');
+      postCategorys.appendChild(CATEGORY[i].id);
+      let decisionFlg = 0;
+      CATEGORY[i].id.addEventListener('click', () => {
+        if (decisionFlg === 0) {
+          this.typeDecision(i, types);
+          decisonFlg = 1;
+        } else {
+          this.typeCancel(i, types);
+          decisonFlg = 0;
+        }
+      });
+    }
     const postImg = document.createElement('img');
     const postButton = document.createElement('submit');
     postButton.type = 'submit';
@@ -203,18 +208,47 @@ class Map {
     mapSection.removeChild(postForm);
   }
 
-  // typeDecision(i,types) {
-  //   types = types | CATEGORY[i].flg;
-  //   return types
-  // }
+  typeDecision(i,types) {
+    types = types | CATEGORY[i].flg;
+    return types
+  }
 
-  // typeCancel() {
+  typeCancel() {
+    type = type ^ CATEGORY[i].flg;
+    return types
+  }
 
-  // }
+  createDetailPage(j) {
+    const detailPage = document.createElement('section');
+    detailPage.id = detailPage;
+    mapSection.appendChild(detailPage);
+    const garbageName = document.createElement('p');
+    garbageName.innerHTML = MARKER_INFO[j].name;
+    detailPage.appendChild(garbageName);
+    const garbageCategorys = document.createElement('ul');
+    detailPage.appendChild(garbageCategorys);
+    for (let i = 0; i <= 4; i++) {
+      const CATEGORY[i].id = document.createElement('li');
+      garbageCategorys.appendChild(CATEGORY[i].id);
+      this.typeConfirm(j);
+    }
+  }
 
-  // createDetailPage() {
+  typeConfirm(j) {
+    for (let i = 0; i <= 3; i++) {
+      check = val.slice(0, 1);
 
-  // }
+      val = val.slice(1, 4 - i);
+
+      if (check == "0") {
+        document.createElement('li').src = "../../svg/NonSelect" + CATEGORY[i].img;
+      } else {
+        document.createElement('li').src = "../../src/select" + CATEGORY[i].img;
+      }
+
+      
+    }
+  }
 }
 
 export default Map;
