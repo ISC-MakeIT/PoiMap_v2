@@ -107,18 +107,18 @@ class Map {
         this.removePostForm();
         // ザーバーに座標を送る
         //まだデプロイしていないのでローカルホスト
-        // fetch(/*localhost:*/,
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        // },
-        //   body: JSON.stringify({
-        //     'id': idNum,
-        //     'lat': postLat,
-        //     'lng': postLng,
-        //     'name': postName.innerHTML
-        //   })
-        // )
+        fetch(localhost:,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+        },
+          body: JSON.stringify({
+            'id': idNum,
+            'lat': postLat,
+            'lng': postLng,
+            'name': postName.innerHTML
+          })
+        )
       });
       for (let i = 0; i < MARKER_INFO.length; i++){
         MARKER_INFO[i].onClick = createDetailPage(i);
