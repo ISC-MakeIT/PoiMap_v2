@@ -71,7 +71,7 @@ class Map {
     header.appendChild(h1);
 
     navigator.geolocation.getCurrentPosition(request_success, request_error);
-    this.target.appendChild(section);
+    this.target.appendChild(mapSection);
 
     this.map.addEventListener('click', e => {
       this.getClickMarker(e.latLng);
@@ -101,7 +101,7 @@ class Map {
       });
 
       postButton.addEventListener('click', () => {
-        const idNum = this.markerInfo.length;
+        const idNum = MARKER_INFO.length;
         const postLat = e.lat;
         const postLng = e.lng;
         this.removePostForm();
@@ -179,10 +179,10 @@ class Map {
     const postCategorys = document.createElement('ul');
     let types = 0b0000;
     for (let i = 0; i <= 4; i++){
-      const CATEGORY[i].id = document.createElement('li');
-      postCategorys.appendChild(CATEGORY[i].id);
+      const gabargeType = document.createElement('li');
+      postCategorys.appendChild(gabargeType);
       let decisionFlg = 0;
-      CATEGORY[i].id.addEventListener('click', () => {
+      gabargeType.addEventListener('click', () => {
         if (decisionFlg === 0) {
           this.typeDecision(i, types);
           decisonFlg = 1;
@@ -213,7 +213,7 @@ class Map {
     return types
   }
 
-  typeCancel() {
+  typeCancel(i, types) {
     type = type ^ CATEGORY[i].flg;
     return types
   }
@@ -227,28 +227,19 @@ class Map {
     detailPage.appendChild(garbageName);
     const garbageCategorys = document.createElement('ul');
     detailPage.appendChild(garbageCategorys);
-    for (let i = 0; i <= 4; i++) {
-      const CATEGORY[i].id = document.createElement('li');
-      garbageCategorys.appendChild(CATEGORY[i].id);
-      this.typeConfirm(j);
-    }
+    this.typeConfirm(j);
   }
 
   typeConfirm(j) {
-    for (let i = 0; i <= 3; i++) {
-      check = val.slice(0, 1);
-
-      val = val.slice(1, 4 - i);
-
-      if (check == "0") {
-        const nonSelectGarbageSVG = document.createElement('li').src = "../../svg/NonSelect" + CATEGORY[i].img;
-        garbageCategorys.appendChild(nonSelectGarbageSVG);
-      } else {
-        const selectGarbageSVG =  document.createElement('li').src = "../../src/select" + CATEGORY[i].img;
-        garbageCategorys.appendChild(selectGarbageSVG);
-      }
+      CATEGORY.map(
+        item => {
+          if (MARKER.type[j].types & item.flg >= 1) {
+            const gabargeType = document.createElement('li');
+            gabargeType.src = item.img;
+            garbageCategorys.appendChild(gabargeType);
+          }
+        })
     }
   }
-}
 
 export default Map;
