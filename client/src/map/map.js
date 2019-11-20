@@ -241,12 +241,12 @@ class Map {
       val = val.slice(1, 4 - i);
 
       if (check == "0") {
-        document.createElement('li').src = "../../svg/NonSelect" + CATEGORY[i].img;
+        const nonSelectGarbageSVG = document.createElement('li').src = "../../svg/NonSelect" + CATEGORY[i].img;
+        garbageCategorys.appendChild(nonSelectGarbageSVG);
       } else {
-        document.createElement('li').src = "../../src/select" + CATEGORY[i].img;
+        const selectGarbageSVG =  document.createElement('li').src = "../../src/select" + CATEGORY[i].img;
+        garbageCategorys.appendChild(selectGarbageSVG);
       }
-
-      
     }
   }
 }
