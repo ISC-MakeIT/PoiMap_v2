@@ -4,71 +4,108 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../style/html5reset-1.6.1.css">
+    <link rel="stylesheet" href="../style/home.css">
     <title>Document</title>
   </head>
   <body>
-    <header id="header">
-      <h1 id="header-text"></h1>
-      <img id="header-image" src="" alt="PoiMap header image" />
-    </header>
     <main id="main">
+      <header id="header">
+        <img
+          id="header-image"
+          src="../img/l_ah00_tapi4.jpeg"
+          alt="PoiMap header image"
+        />
+        <h1 id="header-text">ゴミ箱ないとは言わせない</h1>
+        <p id="sub-header-text">ゴミ箱位置検索サービス</p>
+      </header>
       <section id="top-page">
         <h2 id="title-logo">
-          <img id="title-logo-image" src="" alt="PoiMap logo" />
+          <img id="title-logo-image" src="../img/PoiMap_Logo.svg-01.png" alt="PoiMap logo" />
         </h2>
         <section id="contents-link">
-          <section id="navigation-page-link">
+          <section id="navigation-page-link" onClick="">
             <h3 id="navigation-page">
               <img
                 id="navigation-page-icon"
-                src="longlongtext"
+                src="../svg/point.svg"
                 alt="navigation-page icon"
               />
+              <p class="contents-name">現在地で探す</p>
             </h3>
-            <p class="section-text"></p>
           </section>
-          <section id="manual-page-link">
+          <section id="manual-page-link" onClick="">
             <h3 id="manual-page">
               <img
                 id="manual-page-icon"
-                src="longlongtext"
+                src="../svg/note.svg"
                 alt="manual-page icon"
               />
+              <p class="contents-name">マニュアル</p>
             </h3>
-            <p class="section-text"></p>
           </section>
         </section>
         <nav id="language-menu">
           <ul id="language-list">
-            <li class="ja language"></li>
-            <li class="en language"></li>
-            <li class="zh language"></li>
-            <li class="ko language"></li>
+            <li class="language-contents">
+              <img
+                class="language_flg"
+                src="../img/japan.png"
+              />
+              <p>日本語</p>
+            </li>
+            <li class="language-contents">
+              <img
+                class="language_flg"
+                src="../img/USA.png"
+              />
+              <p>ENGLISH</p>
+            </li>
+            <li class="language-contents">
+              <img
+                class="language_flg"
+                src="../img/ch.png"
+              />
+              <p>中文</p>
+            </li>
+            <li class="language-contents">
+              <img
+                class="language_flg"
+                src="../img/kr.png"
+              />
+              <p>한국</p>
+            </li>
           </ul>
         </nav>
       </section>
       <section id="introduction">
         <section id="search">
-          <h3 class="search-header-text"></h3>
+          <h2 id="search-header-text">Search</h2>
+          <span id="back-search-header-text">探す</span>
           <p id="search-page">
             <img
               id="search-page-image"
-              src="longlongtext"
+              src="../img/search.png"
               alt="searching-page screen-shot"
             />
           </p>
-          <p class="section-text"></p>
+          <p id="search-section-text">PoiMapは周辺地域や指定した地域にあるゴミ箱の位置を表示して案内します。
+          又、ゴミの種類によってフィルターをかけることもできるので、
+          捨てたいゴミの種類に応じて表示するゴミ箱を制限することもできます。</p>
         </section>
         <section id="post">
-          <h3 id="post-header-text"></h3>
-          <p id="post-page">
-            <img
-              id="post-page-image"
-              src="longlongtext"
-              alt="posting-page screen-shot"
-            />
-          </p>
-          <p class="section-text"></p>
+          <section id="angle-adjustment">
+            <h2 id="post-header-text">Add</h2>
+            <span id="back-post-header-text">追加</span>
+            <p id="post-page">
+              <img
+                id="post-page-image"
+                src="../img/add.png"
+                alt="posting-page screen-shot"
+              />
+            </p>
+            <p id="post-section-text">PoiMapはゴミ箱の位置を地図上に追加することもできるので、見つけたゴミ箱をユーザー同士で共有することができます。</p>
+          </section>
         </section>
       </section>
     </main>
