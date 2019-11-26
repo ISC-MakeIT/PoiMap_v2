@@ -1,0 +1,28 @@
+#confirmation-bar {
+  width: 100vw;
+  height: 15vh;
+  position: fixed;
+  bottom: 0;
+}
+
+#confirmation-text {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+#confirmation-button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#confirmation-Yes-button {
+  border: 1px solid #0271b4;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+}
+
+#confirmation-No-button {
+  border: 1px solid #ea4335;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+}
