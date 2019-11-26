@@ -1,0 +1,104 @@
+#filter-button {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #0271b4;
+  transition: all 1s ease;
+}
+
+#filter-img {
+  position: relative;
+  top: 4px;
+  right: -2px;
+  width: 70%;
+  height: 70%;
+  /* background-color: #fff; */
+  /* stroke: #fff; */
+  color: #fff;
+  fill: currentColor;
+  border-radius: 50%;
+}
+
+#filter-contents {
+  position: fixed;
+  bottom: 15px;
+  right: 0;
+  /* background-color: #F8F8F8; */
+  background-color: rgba(0, 0, 0, 80%);
+  width: 70vw;
+  height: 60vh;
+  border-radius: 50px 0 0 50px;
+  margin: 0;
+  text-align: right;
+  clip-path: circle(0px at 84.7% 92.5%);
+  -webkit-clip-path: circle(0px at 84.7% 92.5%);
+  transition: all 0.7s ease;
+}
+
+#filter-contents.open {
+  clip-path: circle(500px at 84.7% 92.5%);
+  -webkit-clip-path: circle(500px at 84.7% 92.5%);
+}
+
+#filter-contents ul {
+  list-style: none;
+}
+
+#sort-CanBurn-link,
+#sort-NonBurn-link,
+#sort-PETbottle-link,
+#sort-bottleCan-link,
+#close-link {
+  width: 50vw;
+  height: 7vh;
+  margin: 35px 0 0 0;
+}
+
+#filter-contents .garbage-name-text {
+  width: 60%;
+  text-align: right;
+  color: #fff;
+}
+
+#sort-CanBurn-link .garbage-img,
+#sort-NonBurn-link .garbage-img,
+#sort-PETbottle-link .garbage-img,
+#sort-bottleCan-link .garbage-img {
+  width: 50px;
+  height: 50px;
+}
+
+#sort-CanBurn-link .garbage-img {
+  position: absolute;
+  top: 23px;
+  right: 30px;
+}
+
+#sort-NonBurn-link .garbage-img {
+  position: absolute;
+  top: 105px;
+  right: 30px;
+}
+
+#sort-PETbottle-link .garbage-img {
+  position: absolute;
+  top: 185px;
+  right: 30px;
+}
+
+#sort-bottleCan-link .garbage-img {
+  position: absolute;
+  top: 270px;
+  right: 30px;
+}
+
+#close-link .garbage-img {
+  position: absolute;
+  top: 340px;
+  right: 36px;
+  width: 35px;
+  height: 35px;
+}

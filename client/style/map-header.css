@@ -1,0 +1,21 @@
+#map-header{
+position: relative;
+width: 100%;
+height: 60px;
+text-align: center;
+}
+#map-header-text{
+    color: #F8F8F8;
+    font-weight: bold;
+    position: relative;
+    margin: auto;
+    font-size: 150%;
+    top: 20%;
+    letter-spacing: 1rem;
+}
+#back-arrow-img{
+    position: absolute;
+    height: 60px;
+    width: 50px;
+    left: 10px;
+}
